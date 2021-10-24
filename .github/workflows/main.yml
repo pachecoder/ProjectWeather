@@ -2,6 +2,9 @@ name: dotnet package
 
 on: [push]
 
+env:
+  AZURE_WEBAPP_NAME: weather-appservice
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,4 +27,12 @@ jobs:
           name: XUnit Tests
           path: ./*/TestResults/*.trx
           reporter: dotnet-trx
- 
+      - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v2
+      - name: dotnet publish
+        run: |
+            dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_NAME }}
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: './${{ env.AZURE_WEBAPP_NAME }}'
