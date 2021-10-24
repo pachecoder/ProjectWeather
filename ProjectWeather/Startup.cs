@@ -27,6 +27,8 @@ namespace Project.Weather
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project.Practices", Version = "v1" });
             });
 
+            services.AddHealthChecks();
+
             services.AddSingleton<IWeatherForecastProvider, WeatherForecastProvider>();
         }
 
@@ -51,6 +53,8 @@ namespace Project.Weather
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
