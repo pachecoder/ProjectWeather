@@ -1,0 +1,1 @@
+Extremely Simple project to practices how to use Github Actions and its configuration.
