@@ -41,6 +41,8 @@ bld/
 Generated\ Files/
 
 # MSTest test Results
+[Rr]esult*/
+[Tt]est[Rr]esults*/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
