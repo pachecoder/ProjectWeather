@@ -8,7 +8,7 @@ namespace Project.Weather
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing Cold", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         public Task<WeatherForecast> GetWeatherById(int id)
